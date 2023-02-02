@@ -1,0 +1,1311 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+*{
+
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    color: azure;
+}
+
+body{
+
+    background-color: #0d0d0f;
+}
+
+/********** WEBKIT *************/
+
+::-webkit-scrollbar{
+
+    width: 5px;
+    padding: 20px;
+}
+
+::-webkit-scrollbar-track{
+
+    background-color: #2E2E2E;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background-color: #00bcc8;
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    transition: 0.5s;
+    background-color: #05446e;
+}
+
+/********** MENU *************/
+
+header{
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #BDBDBD10;
+}
+
+header.sticky{
+
+    background: #151515;
+    transition: 0.5s;
+    padding: 0px 0px;
+}
+
+#active{
+
+  background-color: #00bcc8;
+  color: #000;
+}
+
+header .wrapper{
+
+  position: relative;
+  max-width: 1300px;
+  padding: 0px 30px;
+  height: 70px;
+  line-height: 70px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapper .logo a{
+
+  color: #00bcc8;
+  font-size: 30px;
+  font-weight: 600;
+  margin-left: 20px;
+  text-decoration: none;
+}
+.wrapper .nav-links{
+  display: inline-flex;
+}
+.nav-links li{
+  list-style: none;
+}
+.nav-links li a{
+
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 7px 15px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover{
+
+  color: #00bcc8;
+}
+.nav-links .mobile-item{
+  display: none;
+}
+.nav-links .drop-menu{
+
+  position: absolute;
+  background: #242526;
+  width: 180px;
+  line-height: 45px;
+  top: 85px;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+.nav-links li:hover .drop-menu,
+.nav-links li:hover .mega-box{
+
+  transition: all 0.3s ease;
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+}
+.drop-menu li a{
+
+  width: 100%;
+  display: block;
+  padding: 0 0 0 15px;
+  font-weight: 400;
+  border-radius: 0px;
+}
+
+.mega-box{
+
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 0 30px;
+  top: 85px;
+  opacity: 0;
+  visibility: hidden;
+}
+.mega-box .content{
+  background: #242526;
+  padding: 25px 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+.mega-box .content .row{
+
+  width: calc(25% - 30px);
+  line-height: 45px;
+
+}
+.content .row img{
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+.content .row header{
+
+  color: #f2f2f2;
+  font-size: 20px;
+  font-weight: 500;
+
+}
+.content .row .mega-links{
+
+  margin-left: -40px;
+  border-left: 1px solid rgba(255,255,255,0.09);
+}
+.row .mega-links li{
+
+  padding: 0 20px;
+
+}
+
+.row .mega-links li a{
+
+  padding: 0px;
+  padding: 0 20px;
+  color: #d9d9d9;
+  font-size: 17px;
+  display: block;
+}
+
+.row .mega-links li a:hover{
+
+  color: #f2f2f2;
+
+}
+
+.wrapper .btn{
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+
+}
+
+.wrapper .btn.close-btn{
+
+  position: absolute;
+  right: 30px;
+  top: 10px;
+
+}
+
+
+@media screen and (max-width: 970px) {
+  .wrapper .btn{
+    display: block;
+  }
+  .wrapper .nav-links{
+    
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    max-width: 350px;
+    top: 0;
+    left: -100%;
+    background: #242526;
+    display: block;
+    padding: 50px 10px;
+    line-height: 50px;
+    overflow-y: auto;
+    box-shadow: 0px 15px 15px rgba(0,0,0,0.18);
+    transition: all 0.3s ease;
+  }
+  /* custom scroll bar */
+
+  #menu-btn:checked ~ .nav-links{
+    left: 0%;
+  }
+  #menu-btn:checked ~ .btn.menu-btn{
+    display: none;
+  }
+  #close-btn:checked ~ .btn.menu-btn{
+    display: block;
+  }
+  .nav-links li{
+    margin: 15px 10px;
+  }
+  .nav-links li a{
+    padding: 0 20px;
+    display: block;
+    font-size: 20px;
+  }
+  .nav-links .drop-menu{
+    position: static;
+    opacity: 1;
+    top: 65px;
+    visibility: visible;
+    padding-left: 20px;
+    width: 100%;
+    max-height: 0px;
+    overflow: hidden;
+    box-shadow: none;
+    transition: all 0.3s ease;
+  }
+  #showDrop:checked ~ .drop-menu,
+  #showMega:checked ~ .mega-box{
+    max-height: 100%;
+  }
+  .nav-links .desktop-item{
+    display: none;
+  }
+
+  .nav-links .mobile-item{
+
+    display: block;
+    color: #f2f2f2;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-left: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links .mobile-item p{
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    
+  }
+
+  .nav-links .mobile-item:hover{
+    
+    color: #00bcc8;
+  }
+  .drop-menu li{
+    margin: 0;
+  }
+  .drop-menu li a{
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  .mega-box{
+    position: static;
+    top: 65px;
+    opacity: 1;
+    visibility: visible;
+    padding: 0 20px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .mega-box .content{
+    box-shadow: none;
+    flex-direction: column;
+    padding: 20px 20px 0 20px;
+  }
+  .mega-box .content .row{
+    width: 100%;
+    margin-bottom: 15px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .mega-box .content .row:nth-child(1),
+  .mega-box .content .row:nth-child(2){
+    border-top: 0px;
+  }
+  .content .row .mega-links{
+    border-left: 0px;
+    padding-left: 15px;
+  }
+  .row .mega-links li{
+    margin: 0;
+  }
+  .content .row header{
+    font-size: 19px;
+  }
+}
+header input{
+  display: none;
+}
+.body-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  padding: 0 30px;
+}
+.body-text div{
+  font-size: 45px;
+  font-weight: 600;
+}
+
+/************* carroussel ****************/
+
+nav{
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+nav hr{
+
+  width: 80px;
+  margin-bottom: 50px;
+  border: none;
+  background-color: #00bcc8;
+  height: 2px;
+}
+
+nav h2 {
+
+  text-transform:uppercase;
+  margin-bottom: 10px;
+  margin-top: 150px;
+}
+
+.container-name{
+
+  background-color: #fff;
+  display: flex;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container-name h1{
+
+  color: #000;
+  font-weight: 700;
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.container-name P{
+
+  color:#424242;
+  margin-top: 10px;
+  font-size: 16px;
+  width: 90%;
+  text-align: left;
+}
+
+.container-name a{
+
+  color: #000;
+  text-transform: uppercase;
+  margin-top: 15px;
+  background-color: #00bcc8;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  padding: 5px 0px;
+}
+
+.slider{
+
+  width: 95%;
+}
+
+.card{
+
+  padding: 0px 5px;
+}
+
+.card img{
+
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.carousel{
+
+  text-align: center;  
+}
+
+.owl-dots{
+
+  text-align: center;
+  margin-top: 20px;
+}
+.owl-dot{
+
+  height: 10px;
+  width: 30px;
+  margin: 0 5px;
+  outline: none;
+  border: 5px solid #ffffff50!important;
+  box-shadow:  0px 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.owl-dot.active,
+.owl-dot:hover{
+
+  background: #fff!important;
+}
+
+/********** HERO *************/
+
+.hero{
+
+    background-image: url(../img/banner.jpg);
+    height: 100vh;
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+    background-attachment: fixed;
+}
+
+.hero div{
+
+    margin-left: 50px;
+}
+
+.hero h1{
+
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p{
+
+    color: #BDBDBD;
+    width: 50%;
+    font-size: 1.2rem;
+}
+
+.btn-all{
+
+    text-transform: uppercase;
+    border: none;
+    background: #00bcc8;
+    padding: 10px 30px;
+    font-size: 1rem;
+    color: #000;
+    font-weight: 700;
+    margin-top: 50px;
+}
+
+button{
+
+  background-color: #00bcc8;
+  color: #000;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+button:hover{
+
+  transition: 0.5s;
+  background-color: #06619E;
+
+}
+
+/********** SOBRE ARQUITETURA *************/
+
+.svg-trabalhos {
+
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.svg-trabalhos div{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  background-color: #fff;
+  height: 300px;
+  margin: 0px 20px;
+
+}
+
+.svg-trabalhos div h2{
+
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.svg-trabalhos div hr{
+
+  width: 30%;
+  border: none;
+  height: 2px;
+  background-color: #00bcc8;
+  margin-bottom: 20px;
+}
+
+.svg-trabalhos svg{
+
+  background-color:darkcyan;
+  width: 100%;
+  height: 50%;
+  padding: 30px 0px;
+}
+
+.svg-trabalhos div p{
+
+  width: 80%;
+  text-align: center;
+  padding-bottom: 20px;
+  color: #0d0d0f90;
+  
+}
+
+
+/************* Newsletter ****************/
+
+.orcament h1{
+
+  text-align: center;
+  padding: 20px 0px;
+  text-transform: uppercase;
+}
+
+.orcament form{
+
+  background-image: url(..//img/orcamento.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.orcament form input{
+
+  width: 90%;
+  height: 20px;
+  margin-bottom: 15px;
+  border: none;
+  padding: 10px;
+  outline: none;
+  font-size: 18px;
+  color: #000;
+  box-shadow: 1px 1px 7px 1px #00000090;
+  border-radius: 3px;
+}
+
+.orcament form textarea{
+
+  width: 90%;
+  height: 150px;
+  margin-bottom: 15px;
+  border: none;
+  padding: 10px;
+  outline: none;
+  font-size: 18px;
+  color: #000;
+  border-radius: 3px;
+  box-shadow: 1px 1px 7px 1px #00000090;
+  resize: none;
+}
+
+.orcament form button{
+
+  background-color: #00bcc8;
+  width: 93%;
+  border: none;
+  padding: 10px;
+  outline: none;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 3px;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 7px 1px #00000090;
+}
+
+.orcament form button:hover{
+
+  transition: 0.5s;
+  background-color: #06619E;
+
+}
+
+.orcament form button i{
+
+  float: right;
+}
+
+
+/********** MODAL **********/
+.modal {
+
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Content/Box */
+.modal-content {
+
+  margin: 8.5% auto;
+  background-color: #424242;
+  border-radius: 5px;
+  width: 40%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+
+  color: #aaa;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+  position: relative;
+  top: 10px;
+  right: 20px;
+}
+
+.close:hover,
+.close:focus {
+  color: #00bcc8;
+  transition: 0.5s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {bottom: 300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+
+.orcamento{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+
+/************* FOOTER ****************/
+
+footer{
+
+  background-color: #151515;
+  margin-top: 100px;
+  width: 100%;
+  padding: 20px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+footer section{
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+footer section div{
+
+  margin-right: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  justify-content: center;
+}
+
+footer section div h1{
+
+  color: #00bcc8;
+  margin-bottom: 10px;
+}
+
+footer section div p{
+  
+  align-items: flex-start;
+  width: 50%;
+}
+
+footer section ul {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+footer section ul li{
+
+  margin-left: 20px;
+}
+
+.icons-rede{
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 170px;
+}
+
+.icons-rede div{
+
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.icons-rede h2{
+
+  
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+.icons-rede div i{
+
+  margin-right: 15px;
+  font-size: 20px;
+  color: #00bcc8;
+}
+
+.icons-rede hr{
+
+  height: 2px;
+  border: none;
+  margin-top: 5px;
+  background-color: #BDBDBD30;
+  width: 100%;
+}
+
+.copy{
+
+  background-color: #151515;
+  border-top: 1px solid #ffffff20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px;
+}
+
+.copy p{
+
+  font-size: 15px;
+}
+
+/*===========================================
+==================== SOBRE ==================
+============================================*/
+
+.titulo{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 150px;
+}
+
+.titulo h1{
+
+  text-transform: uppercase;
+}
+
+.titulo hr{
+
+  background-color: #00bcc8;
+  height: 2px;
+  width: 20%;
+  margin-top: 5px;
+  border: none;
+}
+
+.sobre-nos {
+
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.sobre-nos img{
+
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: #ffffff20 1px 1px 20px 1px;
+}
+
+.sobre-nos div{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+}
+
+.sobre-nos h1{
+
+  color: #00bcc8;
+  font-size: 2.5rem;
+}
+
+.sobre-nos p{
+
+  margin-top: 30px;
+  font-size: 1.2rem;
+}
+
+/****** Minha História ******/
+.linha {
+  
+  width: 100%;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.linha hr{
+
+  border: none;
+  background-color: #ffffff30;
+  width: 80%;
+  height: 2px;
+}
+
+.history{
+
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.history div{
+
+  width: 40%;
+  margin: 0px 30px;
+}
+
+.history div img{
+
+  background-size: cover;
+  width: 100%;
+}
+
+.history div h1{
+
+  color: #00bcc8;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.history div p{
+
+  font-size: 18px;
+}
+
+/*===========================================
+================ APARTAMENTOS ===============
+============================================*/
+.serviceone{
+
+  background-image: url(../img/background-services.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 40vh;
+  background-color: #00bcc8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.serviceone h1{
+
+  font-size: 2rem;
+}
+
+/****** FOTOS APARTAMENTOS *********/
+
+.position-apart{
+
+  width: 100%;
+  height: 870px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.apartamentos{
+
+  background-color: #BDBDBD;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.position-fotos-apartamentos{
+
+  width: 98%;
+  height: 98%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fotoscolum{
+
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0px;
+}
+
+.fotoscolum div{
+
+  width: 100%;
+  height: 100%;
+  background-color: #2E2E2E;
+  margin: 0px 10px;
+  border-radius: 5px;
+}
+
+.fotoscolum div section{
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.fotoscolum div img{
+
+  width: 100%;
+  height: 75%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.fotoscolum div section h1{
+
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.fotoscolum div section p{
+  width: 80%;
+  color: #BDBDBD90;
+  text-align: center;
+}
+
+
+/****** MODALS APARTAMENTOS *********/
+
+
+
+/*===========================================
+================== CONTATOS =================
+============================================*/
+
+.contatos{
+
+  min-height: 90vh;
+  width: 100%;
+  margin-top: 70px;
+  background-image: url(..//img/contatos.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.contatos section{
+
+  margin: 0px 20px;
+}
+
+/**** CONTACTS - ONE ****/
+
+.contacts-one{
+
+  width: 45%;
+  height: 500px;
+  border-right: 3px solid #fff;
+}
+
+.contacts-one h1{
+
+  font-size: 2rem;
+  text-align: center;
+  padding: 40px 0px;
+}
+
+.contacts-one div {
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.contacts-one div i{
+
+  margin-bottom: 40px;
+  font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.contacts-one div i p{
+
+  font-size: 25px;
+  font-weight: 500;
+  margin-left: 30px;
+}
+
+.icons-contacts {
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.icons-contacts a{
+
+  background-color: #06619E;
+  margin: 0px 20px;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+
+
+.icons-contacts a i{
+
+  font-size: 25px;
+  padding: 15px;
+}
+
+.icons-contacts a:hover{
+
+  background-color: #05446e;
+  transition: 0.5s;
+}
+
+/**** CONTACTS - two ****/
+
+.contacts-two{
+
+  width: 45%;
+  height: 500px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  
+}
+
+.contacts-two h1{
+
+  font-size: 2rem;
+  text-align: center;
+  padding: 30px 0px;
+}
+
+.contacts-two form{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contacts-two form input{
+
+  width: 90%;
+  height: 20px;
+  padding: 10px;
+  font-size: 17px;
+  margin-bottom: 20px;
+  outline: none;
+  border: none;
+  color: #000;
+  border-radius: 4px;
+  box-shadow: #15151590 1px 1px 5px 1px;
+}
+
+.contacts-two form textarea{
+
+  width: 90%;
+  height: 130px;
+  padding: 10px;
+  font-size: 17px;
+  margin-bottom: 10px;
+  outline: none;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  box-shadow: #15151590 1px 1px 10px 1px;
+  resize: none;
+}
+
+.contacts-two form button{
+
+  background-color: #00bcc8;
+  width: 93%;
+  border: none;
+  padding: 10px;
+  outline: none;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 3px;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 7px 1px #00000090;
+}
+
+.contacts-two form button:hover{
+
+  transition: 0.5s;
+  background-color: #06619E;
+
+}
+
+.contacts-two form button i{
+
+  float: right;
+}
+
+/*===========================================
+================== OBRIGADO =================
+============================================*/
+.obg-page{
+
+  width: 100%;
+  min-height:100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.obg-page img{
+
+  width: 200px;
+}
+
+.obg-page hr{
+
+  height: 2px;
+  width: 40%;
+  background-color: #fff;
+  border: none;
+  margin: 30px 0px;
+}
+
+.obg-page h1{
+
+  font-size: 2rem;
+}
+
+.obg-page p{
+
+  font-size: 1.5rem;
+  opacity: 0.4;
+}
+
+.obg-page button{
+
+  margin-top: 20px;
+}
